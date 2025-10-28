@@ -1,4 +1,5 @@
 ﻿using tabuleiro;
+using xadrez_console;
 
 internal class Program
 {
@@ -6,6 +7,7 @@ internal class Program
     {
         Tabuleiro tab = new Tabuleiro(8, 8);
 
+        Tela.imprimirTabuleiro(tab);
         Console.ReadLine();
     }
 }
