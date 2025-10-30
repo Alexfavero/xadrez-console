@@ -7,13 +7,21 @@ internal class Program
     {
         try
         {
-            Tabuleiro tab = new Tabuleiro(8, 8);
+            PartidaDeXadrez partida = new PartidaDeXadrez();
+            while (!partida.terminada)
+            {
+                Console.Clear();
 
-            tab.colocarPeca(new Torre(tab, Cor.Preta), new Posicao(0, 0));
-            tab.colocarPeca(new Torre(tab, Cor.Preta), new Posicao(1, 7));
-            tab.colocarPeca(new Torre(tab, Cor.Branca), new Posicao(3, 5));
+                Tela.imprimirTabuleiro(partida.tab);
 
-            Tela.imprimirTabuleiro(tab);
+                Console.WriteLine("Origem: ");
+                Posicao origem = Tela.lerPoicaoXadrez().toPosicao();
+                Console.WriteLine("Destino: ");
+                Posicao destino = Tela.lerPoicaoXadrez().toPosicao();
+
+                partida.executaMovimento(origem, destino);
+            }
+
         }
         catch (TabuleiroException e)
         {
